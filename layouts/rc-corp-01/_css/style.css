@@ -1,0 +1,454 @@
+@charset "utf-8";
+/*!
+ * kimsQ Rb v2.2 모바일 회사소개 기본형 레이아웃 스타일 (rc-corp-01)
+ * layout Version: 1.0
+ * Homepage: http://www.kimsq.com
+ * Copyright 2018 redblock inc
+ * Licensed under RBL
+ * Based on RC v1
+*/
+
+/**
+ * 목차:
+ *
+ * 1 - Reset 초기화
+ * 2 - Structure 구조
+ * 3 - Header 헤더
+ * 4 - Footer 풋터
+ * 5 - Content 컨텐츠
+ * 6 - Drawer 드로어
+ * 7 - commponent 컴포넌트
+ * 8 - utility 유틸리티
+ * ----------------------------------------------------------------------------
+ */
+
+
+/**
+ * 1 - Reset 초기화
+ * ----------------------------------------------------------------------------
+ */
+
+/* 반응형 설정 */
+@media (min-width: 768px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 1024px) {
+  html {
+    font-size: 20px;
+  }
+}
+
+body, th, td, input, select, textarea, button {
+  line-height: 1.5;
+  font-family: AppleSDGothicNeo-Light,'HelveticaNeue','Malgun Gothic','맑은 고딕',sans-serif;
+  color: #000;
+  letter-spacing:-0.0625rem
+}
+
+
+/**
+ * 2 - Structure 구조
+ *
+ * 컬럼,여백 사이즈 조정
+ * ----------------------------------------------------------------------------
+ */
+
+.gutter-half {
+  margin-right: -3.5px;
+  margin-left: -3.5px;
+}
+
+.gutter-half > .col,
+.gutter-half > [class*="col-"] {
+  padding-right: 3.5px;
+  padding-left: 3.5px;
+}
+
+
+
+/**
+ * 3 - Header 헤더
+ *
+ * 헤더 칼라 등 설정
+ * ----------------------------------------------------------------------------
+ */
+
+.snap-content .bar-nav .title.imgtype span {
+  overflow: hidden;
+  margin: 10px auto 0;
+  background: url(../_images/logo.png) no-repeat 0 0;
+  background-size: contain;
+  text-indent: -9999px;
+  display: block;
+  overflow: hidden;
+  width: 85px;
+}
+
+.snap-content .bar-dark .title.imgtype span {
+  background-image: url(../_images/logo_white.png)
+}
+
+.bar.bg-primary {
+  background-color: #343a40!important;
+}
+
+.bar.bg-primary a[role="button"]:active {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.bar-transition {
+  transition-property: all;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+  transition-duration: .3s;
+}
+
+
+/**
+  * 4 - Footer 풋터
+  * ----------------------------------------------------------------------------
+  */
+
+.footer {
+  padding: 25px 0 25px;
+  text-align: center;
+  font-size: 12px;
+  color: #888;
+}
+
+.footer .nav-link {
+  padding: 0 5px 0 0;
+  color: #888;
+}
+
+.footer .nav-link::after {
+  padding-left: 9px;
+  content: '|';
+  color: #d9d9d9;
+  font-size: 10px;
+}
+
+.footer .nav-link:last-child::after {
+  content: none;
+}
+
+
+/**
+ * 5 - Content 컨텐츠
+ * ----------------------------------------------------------------------------
+ */
+
+.rb-layout-full .snap-content .bar-nav ~ .content {
+	padding-top: 0
+}
+
+.rb-layout-full .snap-content .main {
+	height: 200px;
+	position: relative;
+	background-color: #eee
+}
+
+.content .rb-article img {
+  max-width: 100%;
+}
+
+/* jumbotron */
+#slider .mask {
+  position: relative;
+  display: block;
+}
+
+#slider .mask:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: -moz-linear-gradient(top,rgba(0,0,0,.05),rgba(0,0,0,.6));
+  background-image: -o-linear-gradient(top,rgba(0,0,0,.05),rgba(0,0,0,.6));
+  background-image: linear-gradient(to bottom,rgba(0,0,0,.05),rgba(0,0,0,.6));
+  content: '';
+}
+
+#slider .caption {
+  position: absolute;
+  width: 80%;
+  bottom: 0;
+  padding-left: 1rem;
+  color: #fff
+}
+
+#slider .caption h1 {
+  margin-bottom: .7rem;
+  font-size: 1.3rem
+}
+
+#slider .caption p {
+  margin-bottom: 0.3rem;
+  font-size: .7rem;
+  letter-spacing: -0.0625rem;
+  color: #ddd
+}
+
+.swiper-pagination-fraction{
+  color: #fff;
+  font-size: 0.75rem;
+  text-align: right;
+  padding-right: 1rem
+}
+
+/*Auto Slides Per View*/
+.swiper-container.auto .swiper-slide {
+  width: 80%;
+  height: auto;
+}
+
+
+/* jumbotron */
+.rb-layout-default .jumbotron {
+  position: relative;
+  padding: 8rem 1rem;
+  margin-bottom: 2rem;
+  background-color: #999;
+  border-radius: 0;
+  background-size: cover;
+  background-position: 50% 0;
+  background-repeat: no-repeat;
+  color: #fff;
+  text-shadow: 0 1px 1px #000;
+}
+
+.rb-layout-default .jumbotron::before {
+  position: absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  opacity: 1 !important;
+  content: '';
+  transform: translate(0px, 0px);
+  transition-timing-function: ease-in;
+  transition-duration: 0.3s;
+  background-color: rgba(0, 0, 0, 0.4) !important;
+}
+
+.rb-layout-default .jumbotron .content-padded {
+  position: absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+}
+
+.rb-layout-default .jumbotron h2 {
+  margin-top: 5px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+
+/* 포커스된 아이템 강조표시 */
+[data-role="bbs-list"]  .table-view-cell:focus {
+  background-color: #F5FFFE !important;
+}
+
+[data-role="bbs-list"] .card:focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+  -webkit-box-shadow: 0 0 0 4px #007bff ;
+  box-shadow: 0 0 0 4px #007bff ;
+}
+
+[data-role="bbs-list"]  .card a:focus,
+[data-role="bbs-list"]  .table-view-cell a:focus {
+  outline: 0
+}
+
+
+.widget a {
+  letter-spacing:-0.0625rem
+}
+
+/*통합검색*/
+#modal-search .bar-nav {
+  height: 3.75rem;
+}
+
+#modal-search .bar-nav ~ .content {
+  padding-top: 3.75rem;
+}
+
+#modal-search .input-group .form-control {
+  border: none
+}
+
+#modal-search .bar-nav .input-group {
+ top: 0;
+}
+
+#modal-search .input-group > .input-group-btn > .btn {
+ padding: 0.6rem 0.7rem;
+ color: #ccc
+}
+
+/*검색어 추천*/
+.autocomplete-suggestions {
+  top: 4.0625rem !important;
+  overflow-y: auto;
+  left:0 !important;
+  padding-left: 0;
+  margin-top: .0625rem;
+  margin-bottom: 0.9375rem;
+  list-style: none;
+  width: 100% !important;
+  background-color: transparent;
+  background-color: #fff
+}
+
+.autocomplete-suggestion {
+  position: relative;
+  padding:.6rem 1rem .5rem 1rem;
+  overflow: hidden;
+  border-bottom: 0.0625rem solid rgba(0, 0, 0, 0.075);
+  display: block;
+  overflow: hidden;
+  color: inherit;
+}
+
+.autocomplete-suggestion:empty {
+  display: none
+}
+
+.autocomplete-suggestion{color:#333}
+.autocomplete-suggestion strong{font-weight:normal;color:#0275d8}
+
+
+/**
+ * 6 - Drawer 드로어(사이드 메뉴)
+ * ----------------------------------------------------------------------------
+ */
+
+.snap-content {
+  background-color: #fff
+}
+
+.snap-drawer .bar-nav .title {
+  margin: 0;
+  text-align: left;
+  padding-left: 1rem;
+}
+
+.navigate-rightdown:after,
+.navigate-updown:after{
+  position: absolute;
+  top: 35%;
+  right: .9375rem;
+  display: inline-block;
+  font-family: Ratchicons;
+  font-size: 1rem;
+  line-height: 1;
+  color: #bbb
+}
+
+.navigate-updown:after {
+  content: '\e81f';
+}
+
+.navigate-updown.collapsed:after {
+  content: '\e814';
+}
+
+.snap-drawer .table-view .table-view {
+  background-color: #f6f6f8;
+  border-top: 0.0625rem solid #d8dce2
+}
+
+
+/**
+ * 7 - commponent 컴포넌트
+ * ----------------------------------------------------------------------------
+ */
+
+.bar .nav-inline .nav-link {
+  color: #818a91;
+}
+
+.bar .nav-inline .nav-link.active {
+  color: #0275d8;
+}
+
+.modal {
+  -webkit-transition-timing-function: cubic-bezier(.1, .5, .1, 1);
+  transition-timing-function: cubic-bezier(.1, .5, .1, 1);
+}
+
+.modal.active {
+   -webkit-transition-timing-function: cubic-bezier(.1, .5, .1, 1);
+           transition-timing-function: cubic-bezier(.1, .5, .1, 1);
+}
+
+
+/* 포토모달 */
+.pswp-gallery .pswp__subject {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0.75;
+  overflow: hidden;
+  padding: 13px 0 13px 13px;
+  width: 70%;
+  font-size: 15px;
+  line-height: 1.5em;
+  color: #fff;
+  text-shadow: 0 1px rgba(0,0,0,0.4);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pswp-gallery .pswp__counter {
+  position: absolute;
+  left: 0;
+  top: 35px;
+  font-size: 12px;
+  line-height: 20px;
+  color: #ccc;
+  opacity: 0.75;
+  padding: 0 15px;
+}
+
+.pswp-gallery .pswp__caption {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 70%;
+  min-height: 44px;
+}
+
+.pswp-gallery .pswp__reaction {
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  width: 25%;
+  min-height: 44px;
+}
+
+.pswp-gallery .pswp__reaction .pswp__button {
+  background-image: none;
+  font-size: 13px;
+  color: #eee;
+  line-height: 1.7
+}
+
+
+/**
+  * 8 - utility 유틸리티
+  * ----------------------------------------------------------------------------
+  */
+
+.bg-transparent {
+  background-color: transparent !important;
+}
