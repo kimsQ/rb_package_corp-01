@@ -217,9 +217,9 @@ for($i = 1; $i < $RSS['count']; $i++)
   }
 
   $QKEY = "site,gid,bbs,bbsid,depth,parentmbr,display,hidden,notice,name,nic,mbruid,id,pw,category,subject,content,html,tag,";
-  $QKEY.= "hit,down,comment,oneline,trackback,likes,dislikes,report,point1,point2,point3,point4,d_regis,d_modify,d_comment,d_trackback,upload,ip,agent,sns,featured_img,location,pin,adddata";
+  $QKEY.= "hit,down,comment,oneline,likes,dislikes,report,point1,point2,point3,point4,d_regis,d_modify,d_comment,upload,ip,agent,sns,featured_img,location,pin,adddata";
   $QVAL = "'$site','$gid','$bbsuid','$bbsid','$depth','$parentmbr','$display','$hidden','$notice','$name','$nic','$mbruid','$mbrid','$pw','$category','$subject','$content','$html','$tag',";
-  $QVAL.= "'$hit','$down','$comment','$oneline','$trackback','$likes','$dislikes','$report','0','0','0','0','$d_regis','$d_modify','$d_comment','$d_trackback','$xupload','$ip','$agent','','$up_lastuid','$location','$pin','$adddata'";
+  $QVAL.= "'$hit','$down','$comment','$oneline','$likes','$dislikes','$report','0','0','0','0','$d_regis','$d_modify','$d_comment','$xupload','$ip','$agent','','$up_lastuid','$location','$pin','$adddata'";
   getDbInsert($table[$bbsmodule.'data'],$QKEY,$QVAL);
   $LASTUID = getDbCnt($table[$bbsmodule.'data'],'max(uid)','');
   getDbInsert($table[$bbsmodule.'idx'],'site,notice,bbs,gid',"'$site','$notice','$bbsuid','$gid'");
@@ -256,8 +256,6 @@ $dataFolder = $package_path.'/_data/bbs' ;
 $filesFolder = $package_path.'/files' ;
 $saveDir_bbs = $filesFolder.'/bbs';
 $todayFolder   = substr($date['today'],0,4).'/'.substr($date['today'],4,2).'/'.substr($date['today'],6,2);
-
-
 
 // 업로드 디렉토리 없는 경우 추가
 if(!is_dir($saveDir_bbs)){
