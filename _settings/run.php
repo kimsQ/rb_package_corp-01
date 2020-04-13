@@ -69,7 +69,7 @@ for($i = 1; $i < $RSS['count2']; $i++)
 	$up2_mingid	= getDbCnt($table['s_upload'],'min(gid)','');
 	$up2_gid = $up2_mingid ? $up2_mingid - 1 : 100000000;
 
-	$QKEY = "uid,gid,category,hidden,tmpcode,site,mbruid,type,ext,fserver,url,folder,name,tmpname,size,width,height,caption,description,d_regis,d_update,linkurl,time";
+	$QKEY = "uid,gid,category,hidden,tmpcode,site,mbruid,type,ext,fserver,host,folder,name,tmpname,size,width,height,caption,description,d_regis,d_update,linkurl,time";
 	$QVAL = "'$up2_uid','$up2_gid','$up2_category','0','','$site','$mbruid','$up2_type','$up2_fileExt','$up2_fserver','$up2_url','$up2_folder','$up2_name','$up2_tmpname','$up2_size','$up2_width','$up2_height','$up2_caption','$up2_description','$d_regis','','$up2_linkurl','$up2_time'";
 	getDbInsert($table['s_upload'],$QKEY,$QVAL);
   $up2_gid--;
