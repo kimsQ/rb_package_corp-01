@@ -4,7 +4,7 @@
 메인 페이지 레이아웃 지정
 */
 
-getDbUpdate($table['s_page'],"layout='bs4-corp-01/full.php',m_layout='rc-corp-01/full.php'",'ismain=1 and site='.$S['uid']);
+getDbUpdate($table['s_page'],"layout='bs4-default/home.php',m_layout='rc-starter/default.php'",'ismain=1 and site='.$S['uid']);
 
 include_once $g['path_core'].'function/rss.func.php';
 
@@ -14,8 +14,8 @@ function getRssAddslashes($s,$f)
 }
 
 // 레이아웃 사이트별 설정파일 실제 파일명으로 변경
-@rename($g['path_tmp'].'app/'.$package_folder.'/layouts/bs4-corp-01/_var/_var.'.$d['package']['siteid'].'.php',$g['path_tmp'].'app/'.$package_folder.'/layouts/bs4-corp-01/_var/_var.'.$S['id'].'.php');
-@rename($g['path_tmp'].'app/'.$package_folder.'/layouts/rc-corp-01/_var/_var.'.$d['package']['siteid'].'.php',$g['path_tmp'].'app/'.$package_folder.'/layouts/rc-corp-01/_var/_var.'.$S['id'].'.php');
+@rename($g['path_tmp'].'app/'.$package_folder.'/layouts/bs4-default/_var/_var.'.$d['package']['siteid'].'.php',$g['path_tmp'].'app/'.$package_folder.'/layouts/bs4-default/_var/_var.'.$S['id'].'.php');
+@rename($g['path_tmp'].'app/'.$package_folder.'/layouts/rc-starter/_var/_var.'.$d['package']['siteid'].'.php',$g['path_tmp'].'app/'.$package_folder.'/layouts/rc-starter/_var/_var.'.$S['id'].'.php');
 
 // 통합검색 사이트별 설정파일 실제 파일명으로 변경
 @rename($g['path_tmp'].'app/'.$package_folder.'/_var/site/'.$d['package']['siteid'],$g['path_tmp'].'app/'.$package_folder.'/_var/site/'.$S['id']);
