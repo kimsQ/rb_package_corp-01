@@ -14,8 +14,8 @@ function getRssAddslashes($s,$f)
 }
 
 // 레이아웃 사이트별 설정파일 실제 파일명으로 변경
-@rename($g['path_tmp'].'app/'.$package_folder.'/layouts/bs4-default/_var/_var.'.$d['package']['siteid'].'.php',$g['path_tmp'].'app/'.$package_folder.'/layouts/bs4-default/_var/_var.'.$S['id'].'.php');
-@rename($g['path_tmp'].'app/'.$package_folder.'/layouts/rc-starter/_var/_var.'.$d['package']['siteid'].'.php',$g['path_tmp'].'app/'.$package_folder.'/layouts/rc-starter/_var/_var.'.$S['id'].'.php');
+//@rename($g['path_tmp'].'app/'.$package_folder.'/layouts/bs4-default/_var/_var.'.$d['package']['siteid'].'.php',$g['path_tmp'].'app/'.$package_folder.'/layouts/bs4-default/_var/_var.'.$S['id'].'.php');
+//@rename($g['path_tmp'].'app/'.$package_folder.'/layouts/rc-starter/_var/_var.'.$d['package']['siteid'].'.php',$g['path_tmp'].'app/'.$package_folder.'/layouts/rc-starter/_var/_var.'.$S['id'].'.php');
 
 // 통합검색 사이트별 설정파일 실제 파일명으로 변경
 @rename($g['path_tmp'].'app/'.$package_folder.'/_var/site/'.$d['package']['siteid'],$g['path_tmp'].'app/'.$package_folder.'/_var/site/'.$S['id']);
@@ -47,7 +47,7 @@ $site		= $S['uid'];
 $folder   = substr($date['today'],0,4).'/'.substr($date['today'],4,2).'/'.substr($date['today'],6,2);
 $d_regis	= $date['totime'];
 $up2_fserver = 0;
-$up2_url = '/files/';
+$up2_url = '/files/mediaset/';
 $mbruid = $my['uid'];
 for($i = 1; $i < $RSS['count2']; $i++)
 {
@@ -70,7 +70,7 @@ for($i = 1; $i < $RSS['count2']; $i++)
 	$up2_gid = $up2_mingid ? $up2_mingid - 1 : 100000000;
 
 	$QKEY = "uid,gid,category,hidden,tmpcode,site,mbruid,type,ext,fserver,host,folder,name,tmpname,size,width,height,caption,description,d_regis,d_update,linkurl,time";
-	$QVAL = "'$up2_uid','$up2_gid','$up2_category','0','','$site','$mbruid','$up2_type','$up2_fileExt','$up2_fserver','$up2_url','$up2_folder','$up2_name','$up2_tmpname','$up2_size','$up2_width','$up2_height','$up2_caption','$up2_description','$d_regis','','$up2_linkurl','$up2_time'";
+	$QVAL = "'$up2_uid','$up2_gid','$up2_category','0','','$site','$mbruid','$up2_type','$up2_fileExt','$up2_fserver','$up2_url','$up2_folder','$up2_name','$up2_tmpname','$up2_size','$up2_width','$up2_height','$up2_caption','$up2_description','$d_regis','','$up2_linkurl',''";
 	getDbInsert($table['s_upload'],$QKEY,$QVAL);
   $up2_gid--;
 }
@@ -78,7 +78,7 @@ for($i = 1; $i < $RSS['count2']; $i++)
 // 미디어셋 업로드용 오늘 폴더 생성
 $package_path = $g['path_tmp'].'/app/'.$package_folder;
 $dataFolder = $package_path.'/_data/mediaset' ;
-$filesFolder = $package_path.'/files' ;
+$filesFolder = $package_path.'/files/mediaset' ;
 $todayFolder   = substr($date['today'],0,4).'/'.substr($date['today'],4,2).'/'.substr($date['today'],6,2);
 
 // 업로드 디렉토리 없는 경우 추가
