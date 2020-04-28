@@ -12,8 +12,6 @@ function getRssAddslashes($s,$f) {
 	return addslashes(getRssContent($s,$f));
 }
 
-@chmod($g['path_tmp'].'app/'.$package_folder,0707);
-
 // 레이아웃 사이트별 설정파일 실제 파일명으로 변경
 //@rename($g['path_tmp'].'app/'.$package_folder.'/layouts/bs4-default/_var/_var.'.$d['package']['siteid'].'.php',$g['path_tmp'].'app/'.$package_folder.'/layouts/bs4-default/_var/_var.'.$S['id'].'.php');
 //@rename($g['path_tmp'].'app/'.$package_folder.'/layouts/rc-starter/_var/_var.'.$d['package']['siteid'].'.php',$g['path_tmp'].'app/'.$package_folder.'/layouts/rc-starter/_var/_var.'.$S['id'].'.php');
@@ -83,7 +81,7 @@ getDbUpdate($table['s_uploadcat'],'r_num=r_num+'.$upfileNum,'mbruid='.$mbruid.' 
 // 미디어셋 업로드용 오늘 폴더 생성
 $package_path = $g['path_tmp'].'/app/'.$package_folder;
 $dataFolder = $package_path.'/_data/mediaset' ;
-$filesFolder = $package_path.'/files/mediaset' ;
+$filesFolder = $g['path_file'].'/files/mediaset' ;
 $todayFolder   = substr($date['today'],0,4).'/'.substr($date['today'],4,2).'/'.substr($date['today'],6,2);
 
 // 업로드 디렉토리 없는 경우 추가
@@ -258,8 +256,7 @@ for($i = 1; $i < $RSS['count']; $i++)
 //게시판 업로드 폴더 생성
 $package_path = $g['path_tmp'].'/app/'.$package_folder;
 $dataFolder = $package_path.'/_data/bbs' ;
-$filesFolder = $package_path.'/files' ;
-$saveDir_bbs = $filesFolder.'/bbs';
+$saveDir_bbs = $g['path_file'].'/bbs';
 $todayFolder   = substr($date['today'],0,4).'/'.substr($date['today'],4,2).'/'.substr($date['today'],6,2);
 
 // 업로드 디렉토리 없는 경우 추가
