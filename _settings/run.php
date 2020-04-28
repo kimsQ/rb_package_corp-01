@@ -8,10 +8,11 @@ getDbUpdate($table['s_page'],"layout='bs4-default/home.php',m_layout='rc-starter
 
 include_once $g['path_core'].'function/rss.func.php';
 
-function getRssAddslashes($s,$f)
-{
+function getRssAddslashes($s,$f) {
 	return addslashes(getRssContent($s,$f));
 }
+
+@chmod($g['path_tmp'].'app/'.$package_folder,0707);
 
 // 레이아웃 사이트별 설정파일 실제 파일명으로 변경
 //@rename($g['path_tmp'].'app/'.$package_folder.'/layouts/bs4-default/_var/_var.'.$d['package']['siteid'].'.php',$g['path_tmp'].'app/'.$package_folder.'/layouts/bs4-default/_var/_var.'.$S['id'].'.php');
