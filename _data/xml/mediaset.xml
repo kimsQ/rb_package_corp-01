@@ -138,19 +138,4 @@
 		<linkurl></linkurl>
 		<time></time>
 	</item>
-	<item>
-		<uid>109</uid>
-		<category>서비스</category>
-		<type>8</type>
-		<url>https://youtu.be</url>
-		<name>lnVuEYApPoQ</name>
-		<size>73411</size>
-		<width>1500</width>
-		<height>2250</height>
-		<caption><![CDATA[평창올림픽 홍보영상]]></caption>
-		<description></description>
-		<src>lnVuEYApPoQ</src>
-		<linkurl></linkurl>
-		<time>01:35</time>
-	</item>
 </channel>
