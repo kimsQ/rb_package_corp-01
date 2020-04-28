@@ -81,7 +81,7 @@ getDbUpdate($table['s_uploadcat'],'r_num=r_num+'.$upfileNum,'mbruid='.$mbruid.' 
 // 미디어셋 업로드용 오늘 폴더 생성
 $package_path = $g['path_tmp'].'/app/'.$package_folder;
 $dataFolder = $package_path.'/_data/mediaset' ;
-$filesFolder = $g['path_file'].'/files/mediaset' ;
+$filesFolder = $g['path_file'].'mediaset' ;
 $todayFolder   = substr($date['today'],0,4).'/'.substr($date['today'],4,2).'/'.substr($date['today'],6,2);
 
 // 업로드 디렉토리 없는 경우 추가
@@ -256,7 +256,7 @@ for($i = 1; $i < $RSS['count']; $i++)
 //게시판 업로드 폴더 생성
 $package_path = $g['path_tmp'].'/app/'.$package_folder;
 $dataFolder = $package_path.'/_data/bbs' ;
-$saveDir_bbs = $g['path_file'].'/bbs';
+$saveDir_bbs = $g['path_file'].'bbs';
 $todayFolder   = substr($date['today'],0,4).'/'.substr($date['today'],4,2).'/'.substr($date['today'],6,2);
 
 // 업로드 디렉토리 없는 경우 추가
