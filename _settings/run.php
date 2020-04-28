@@ -40,14 +40,14 @@ if (getRssAddslashes($RSS['data2'],'title') != 'KIMSQ_RB_MEDIASET')
   getLink('','','킴스큐Rb용 미디어셋 자료등록 XML데이터 파일이 아닙니다.','');
 }
 
-$mCount2 = 0;
+$upfileNum = 0;
 $RSS['array2']= explode('<item>',$RSS['data2']);
 $RSS['count2']= count($RSS['array2']);
 $site		= $S['uid'];
 $folder   = substr($date['today'],0,4).'/'.substr($date['today'],4,2).'/'.substr($date['today'],6,2);
 $d_regis	= $date['totime'];
 $up2_fserver = 0;
-$up2_url = '/files/mediaset/';
+$up2_url = '';
 $mbruid = $my['uid'];
 for($i = 1; $i < $RSS['count2']; $i++)
 {
@@ -62,7 +62,7 @@ for($i = 1; $i < $RSS['count2']; $i++)
 	$up2_description	= getRssAddslashes($RSS['array2'][$i],'description');
   $up2_linkurl	= getRssAddslashes($RSS['array2'][$i],'linkurl');
 	$up2_date	= $date['totime'];
-	$up2_folder	= $folder;
+	$up2_folder	= '/files/mediaset/'.$folder;
 	$up2_fileExt	= strtolower(getExt($up2_name));
 	$up2_fileExt	= $up2_fileExt == 'jpeg' ? 'jpg' : $up2_fileExt;
 	$up2_type	= getRssAddslashes($RSS['array2'][$i],'type');
@@ -73,7 +73,11 @@ for($i = 1; $i < $RSS['count2']; $i++)
 	$QVAL = "'$up2_uid','$up2_gid','$up2_category','0','','$site','$mbruid','$up2_type','$up2_fileExt','$up2_fserver','$up2_url','$up2_folder','$up2_name','$up2_tmpname','$up2_size','$up2_width','$up2_height','$up2_caption','$up2_description','$d_regis','','$up2_linkurl',''";
 	getDbInsert($table['s_upload'],$QKEY,$QVAL);
   $up2_gid--;
+	$upfileNum++;
 }
+
+$_tname = " and name='none'";
+getDbUpdate($table['s_uploadcat'],'r_num=r_num+'.$upfileNum,'mbruid='.$mbruid.' and type=1'.$_tname);
 
 // 미디어셋 업로드용 오늘 폴더 생성
 $package_path = $g['path_tmp'].'/app/'.$package_folder;
