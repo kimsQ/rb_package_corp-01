@@ -198,8 +198,8 @@ for($i = 1; $i < $RSS['count']; $i++)
       $up_type	= getFileType($up_fileExt);
       $up_mingid	= getDbCnt($table['s_upload'],'min(gid)','');
       $up_gid = $up_mingid ? $up_mingid - 1 : 100000000;
-      $QKEY = "gid,hidden,tmpcode,site,mbruid,type,ext,fserver,host,folder,name,tmpname,thumbname,size,width,height,caption,down,d_regis,d_update,sync";
-      $QVAL = "'$up_gid','0','','$site','$mbruid','$up_type','$up_fileExt','$up_fserver','$up_url','$up_folder','$up_name','$up_tmpname','$up_thumbname','$up_size','$up_width','$up_height','$up_caption','$up_down','$d_regis','','$up_sync'";
+      $QKEY = "gid,hidden,tmpcode,site,mbruid,type,ext,fserver,host,folder,name,tmpname,size,width,height,caption,down,d_regis,d_update,sync";
+      $QVAL = "'$up_gid','0','','$site','$mbruid','$up_type','$up_fileExt','$up_fserver','$up_url','$up_folder','$up_name','$up_tmpname','$up_size','$up_width','$up_height','$up_caption','$up_down','$d_regis','','$up_sync'";
       getDbInsert($table['s_upload'],$QKEY,$QVAL);
       $up_lastuid = getDbCnt($table['s_upload'],'max(uid)','');
       $xupload .= '['.$up_lastuid.']';
