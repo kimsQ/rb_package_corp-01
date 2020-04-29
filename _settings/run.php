@@ -192,11 +192,11 @@ for($i = 1; $i < $RSS['count']; $i++)
       $up_height	= $valexp[3];
       $up_down	= 1;
       $up_date	= $date['totime'];
-      $up_folder	= '/files/bbs/'.$folder;
+      $up_folder	= 'files/bbs/'.$folder;
       $up_fileExt	= strtolower(getExt($up_name));
       $up_fileExt	= $up_fileExt == 'jpeg' ? 'jpg' : $up_fileExt;
       $up_type	= getFileType($up_fileExt);
-			$up_src = $up_folder.'/'.$up_tmpname;
+			$up_src = '/'.$up_folder.'/'.$up_tmpname;
       $up_mingid	= getDbCnt($table['s_upload'],'min(gid)','');
       $up_gid = $up_mingid ? $up_mingid - 1 : 100000000;
       $QKEY = "gid,hidden,tmpcode,site,mbruid,type,ext,fserver,host,folder,name,tmpname,size,width,height,caption,down,src,d_regis,d_update,sync";
