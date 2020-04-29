@@ -172,12 +172,12 @@ for($i = 1; $i < $RSS['count']; $i++)
   $month		= substr($today,0,6);
 
 	$xupload = '';
-	$up_cync = '';
+	$up_sync = '';
 
   if ($upload)
   {
     $up_fserver = 0;
-    $up_url = '/files/bbs/';
+    $up_url = '';
     $up_caption	= $subject;
     $upfiles = explode('|',$upload);
     $folder   = substr($date['today'],0,4).'/'.substr($date['today'],4,2).'/'.substr($date['today'],6,2);
@@ -192,13 +192,13 @@ for($i = 1; $i < $RSS['count']; $i++)
       $up_height	= $valexp[3];
       $up_down	= 1;
       $up_date	= $date['totime'];
-      $up_folder	= $folder;
+      $up_folder	= '/files/bbs/'.$folder;
       $up_fileExt	= strtolower(getExt($up_name));
       $up_fileExt	= $up_fileExt == 'jpeg' ? 'jpg' : $up_fileExt;
       $up_type	= getFileType($up_fileExt);
       $up_mingid	= getDbCnt($table['s_upload'],'min(gid)','');
       $up_gid = $up_mingid ? $up_mingid - 1 : 100000000;
-      $QKEY = "gid,hidden,tmpcode,site,mbruid,type,ext,fserver,url,folder,name,tmpname,thumbname,size,width,height,caption,down,d_regis,d_update,sync";
+      $QKEY = "gid,hidden,tmpcode,site,mbruid,type,ext,fserver,host,folder,name,tmpname,thumbname,size,width,height,caption,down,d_regis,d_update,sync";
       $QVAL = "'$up_gid','0','','$site','$mbruid','$up_type','$up_fileExt','$up_fserver','$up_url','$up_folder','$up_name','$up_tmpname','$up_thumbname','$up_size','$up_width','$up_height','$up_caption','$up_down','$d_regis','','$up_sync'";
       getDbInsert($table['s_upload'],$QKEY,$QVAL);
       $up_lastuid = getDbCnt($table['s_upload'],'max(uid)','');
