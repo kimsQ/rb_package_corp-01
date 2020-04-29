@@ -176,6 +176,7 @@ for($i = 1; $i < $RSS['count']; $i++)
 
   if ($upload)
   {
+		$upfileNum = 0;
     $up_fserver = 0;
     $up_url = '';
     $up_caption	= $subject;
@@ -205,7 +206,10 @@ for($i = 1; $i < $RSS['count']; $i++)
       $up_lastuid = getDbCnt($table['s_upload'],'max(uid)','');
       $xupload .= '['.$up_lastuid.']';
       if ($up_gid == 100000000) db_query("OPTIMIZE TABLE ".$table['s_upload'],$DB_CONNECT);
+			$upfileNum++;
     }
+		$_tname = " and name='none'";
+		getDbUpdate($table['s_uploadcat'],'r_num=r_num+'.$upfileNum,'mbruid='.$mbruid.' and type=1'.$_tname);
   }
 
 	if ($tag)
