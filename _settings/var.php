@@ -1,5 +1,6 @@
 <?php
 $d['package']['name'] = 'KimsQ Rb 2.5 회사소개 기본형 패키지'; //패키지명
+$d['package']['id'] = 'corp-01'; //패키지 아이디
 $d['package']['siteid'] = 'home'; //이 패키지를 압축한 사이트아이디
 $d['package']['layout'] = 'bs4-default/default.php'; //이 패키지를 압축한 사이트의 레이아웃
 $d['package']['layout_mobile'] = 'rc-starter/default.php'; //이 패키지를 압축한 사이트의 레이아웃(모바일 전용 - 미사용시 공백)
